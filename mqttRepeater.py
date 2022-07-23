@@ -142,7 +142,7 @@ if __name__ == "__main__":
     waterTank2.setDecimalPrecicion(0)
 
     # Calculate power consumption
-    powerConsumtion = Adder( host="192.168.2.4", port=1883,  inTopic2="trollslottet/power_W", inTopic1="trollslottet/solarPower_W", subtract=True, outTopic="trollslottet/powerConsumptionCalc")
+    powerConsumtion = Adder( host="192.168.2.4", port=1883,  inTopic2="trollslottet/power_W", inTopic1="trollslottet/solarPower_W", subtract=True, outTopic="trollslottet/powerConsumptionCalc_W")
 
     # Wait for MQTT messages
     while True:
