@@ -114,7 +114,7 @@ class Adder:
 
         # check if script has received values for both inValue1 and inValue2
         operation = "Added"
-        if (self.inValue1 and self.inValue2):
+        if (not(self.inValue1 == None) and not (self.inValue2 == None) ):
             if ( self.subtract):
                 newValue = self.inValue1 - self.inValue2
                 operation = "subtracted"
@@ -155,7 +155,7 @@ if __name__ == "__main__":
     waterTank2.setDecimalPrecicion(0)
 
     # Calculate power consumption
-    powerConsumtion = Adder( host="192.168.2.4", port=1883,  inTopic2="trollslottet/power_W", inTopic1="trollslottet/solarPower_W", subtract=True, outTopic="trollslottet/powerConsuptionCalc")
+    powerConsumtion = Adder( host="192.168.2.4", port=1883,  inTopic2="trollslottet/power_W", inTopic1="trollslottet/solarPower_W", subtract=True, outTopic="trollslottet/powerConsumptionCalc")
 
     while True:
         pass
