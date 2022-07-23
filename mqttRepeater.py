@@ -128,25 +128,12 @@ class Adder:
 
 
 if __name__ == "__main__":
-   
-
-    #mqtt.Client(client_id=””, clean_session=True, userdata=None, protocol=MQTTv311, transport=”tcp”)
-    # mqttClient = mqtt.Client("repeater")
-    # mqttClient.on_message=on_message 
-    # mqttClient.connect( host="192.168.2.4", port=1883, keepalive=60)
-
-    # topic = "trollslottet/terrace/waterLevel1"
-    # mqttClient.subscribe(topic)
-
-    # mqttClient.loop_start()
 
     # old tank
     waterTank1 = Scaler(host="192.168.2.4", port=1883, inTopic="trollslottet/terrace/waterLevel1", outTopic="trollslottet/terrace/waterLevel1_L")
-    #waterTank1.setScaleFactor(1000.0/9000.0)
     waterTank1.setScaleFactor(0.1759843371) # copiend from watertank 2
     waterTank1.setZeroValue(-600) # guessed based on one measurement
     waterTank1.setDecimalPrecicion(0)
-
 
     # new tank (butylacetate)
     waterTank2 = Scaler(host="192.168.2.4", port=1883, inTopic="trollslottet/terrace/waterLevel2", outTopic="trollslottet/terrace/waterLevel2_L")
@@ -157,6 +144,7 @@ if __name__ == "__main__":
     # Calculate power consumption
     powerConsumtion = Adder( host="192.168.2.4", port=1883,  inTopic2="trollslottet/power_W", inTopic1="trollslottet/solarPower_W", subtract=True, outTopic="trollslottet/powerConsumptionCalc")
 
+    # Wait for MQTT messages
     while True:
         pass
     
