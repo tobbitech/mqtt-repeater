@@ -1,0 +1,14 @@
+[Unit]
+Description=Subscribe to MQTT topics, calculate, and republish on new topic
+After=network.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/bin/python3 /home/tc/mqtt-repeater/mqttRepeater.py
+TimeoutStartSec=0
+User=tc
+RestartSec=5
+
+[Install]
+WantedBy=default.target
